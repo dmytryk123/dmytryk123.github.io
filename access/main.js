@@ -160,7 +160,7 @@ swiper.on('slideChange', function () {
 
 var p = 0;
 var enteredpass=0;
-correctpass=parseInt(2204);
+correctpass=parseInt(0000);
 
 function buttonclick(buttonnum) {
     if (buttonnum == 99) {
@@ -184,11 +184,16 @@ function buttonclick(buttonnum) {
     	}
     	
     	if (p == 4) {
-        	$('.dot:nth-child(' + p + ')').addClass('pressed');
-        	setTimeout(function () {
-       			$('.loginpage').fadeOut(100);
-       		}, 400);
-			$('html').css('background', '197, 212, 201');
+        	if (parseInt(enteredpass)!=correctpass && correctpass>=0 && correctpass<=9999){
+                p = 0, 400;
+        	    $('.dot').removeClass('pressed');
+    	    }
+    	    else{
+        		$('.dot:nth-child(' + p + ')').addClass('pressed');
+        		setTimeout(function () {
+        			$('.loginpage').fadeOut(100);
+        		}, 400);
+				$('html').css('background', '197, 212, 201');
     	    }
     	} else {
     		$('.dot:nth-child(' + p + ')').addClass('pressed');
